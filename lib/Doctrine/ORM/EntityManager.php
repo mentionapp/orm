@@ -155,6 +155,11 @@ use const E_USER_DEPRECATED;
     private $cache;
 
     /**
+     * @var ORMException|null
+     */
+    private $closedWhere = null;
+
+    /**
      * Creates a new EntityManager that operates on the given database connection
      * and uses the given Configuration and EventManager implementations.
      */
@@ -258,7 +263,7 @@ use const E_USER_DEPRECATED;
 
             return $return ?: true;
         } catch (Throwable $e) {
-            $this->close();
+            $this->close($e);
             $this->conn->rollBack();
 
             throw $e;
@@ -598,11 +603,12 @@ use const E_USER_DEPRECATED;
     /**
      * {@inheritDoc}
      */
-    public function close()
+    public function close(?\Throwable $e = null)
     {
         $this->clear();
 
         $this->closed = true;
+        $this->closedWhere = ORMException::entityManagerClosedHere($e);
     }
 
     /**
@@ -805,7 +811,7 @@ use const E_USER_DEPRECATED;
     private function errorIfClosed()
     {
         if ($this->closed) {
-            throw ORMException::entityManagerClosed();
+            throw ORMException::entityManagerClosed($this->closedWhere);
         }
     }
 

@@ -175,9 +175,9 @@ class NonProxyLoadingEntityManager implements EntityManagerInterface
     /**
      * {@inheritDoc}
      */
-    public function close()
+    public function close(?\Throwable $throwable = null)
     {
-        $this->realEntityManager->close();
+        $this->realEntityManager->close($throwable);
     }
 
     /**

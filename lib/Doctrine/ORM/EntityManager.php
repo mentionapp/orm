@@ -152,6 +152,11 @@ use function strpos;
     private $cache;
 
     /**
+     * @var EntityManagerClosed|null
+     */
+    private $closedWhere = null;
+
+    /**
      * Creates a new EntityManager that operates on the given database connection
      * and uses the given Configuration and EventManager implementations.
      */
@@ -249,7 +254,7 @@ use function strpos;
 
             return $return ?: true;
         } catch (Throwable $e) {
-            $this->close();
+            $this->close($e);
             $this->conn->rollBack();
 
             throw $e;
@@ -626,11 +631,12 @@ use function strpos;
     /**
      * {@inheritDoc}
      */
-    public function close()
+    public function close(?\Throwable $e = null)
     {
         $this->clear();
 
         $this->closed = true;
+        $this->closedWhere = EntityManagerClosed::createClosedHere($e);
     }
 
     /**
@@ -865,7 +871,7 @@ use function strpos;
     private function errorIfClosed(): void
     {
         if ($this->closed) {
-            throw EntityManagerClosed::create();
+            throw EntityManagerClosed::createWhere($this->closedWhere);
         }
     }
 

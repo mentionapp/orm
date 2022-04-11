@@ -153,6 +153,11 @@ class EntityManager implements EntityManagerInterface
     private $cache;
 
     /**
+     * @var EntityManagerClosed|null
+     */
+    private $closedWhere = null;
+
+    /**
      * Creates a new EntityManager that operates on the given database connection
      * and uses the given Configuration and EventManager implementations.
      */
@@ -254,7 +259,7 @@ class EntityManager implements EntityManagerInterface
 
             return $return ?: true;
         } catch (Throwable $e) {
-            $this->close();
+            $this->close($e);
             $this->conn->rollBack();
 
             throw $e;
@@ -631,11 +636,12 @@ class EntityManager implements EntityManagerInterface
     /**
      * {@inheritDoc}
      */
-    public function close()
+    public function close(?\Throwable $e = null)
     {
         $this->clear();
 
         $this->closed = true;
+        $this->closedWhere = EntityManagerClosed::createClosedHere($e);
     }
 
     /**
@@ -874,7 +880,7 @@ class EntityManager implements EntityManagerInterface
     private function errorIfClosed(): void
     {
         if ($this->closed) {
-            throw EntityManagerClosed::create();
+            throw EntityManagerClosed::createWhere($this->closedWhere);
         }
     }
 

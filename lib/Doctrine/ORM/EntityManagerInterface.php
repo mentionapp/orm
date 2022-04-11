@@ -218,7 +218,7 @@ interface EntityManagerInterface extends ObjectManager
      *
      * @return void
      */
-    public function close();
+    public function close(?\Throwable $e = null);
 
     /**
      * Creates a copy of the given entity. Can create a shallow or a deep copy.

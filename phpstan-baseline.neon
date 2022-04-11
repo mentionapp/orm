@@ -1,6 +1,11 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Method Doctrine\\\\ORM\\\\AbstractQuery\\:\\:processParameterValue\\(\\) should return array\\|bool\\|float\\|int\\|string but returns mixed\\.$#"
+			count: 1
+			path: lib/Doctrine/ORM/AbstractQuery.php
+
+		-
 			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\Persisters\\\\Entity\\\\EntityPersister\\:\\:getCacheRegion\\(\\)\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Cache/DefaultEntityHydrator.php
@@ -876,11 +881,6 @@ parameters:
 			path: lib/Doctrine/ORM/Query/Expr/Select.php
 
 		-
-			message: "#^Property Doctrine\\\\ORM\\\\Query\\\\FilterCollection\\:\\:\\$filterHash is never written, only read\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Query/FilterCollection.php
-
-		-
 			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
 			count: 3
 			path: lib/Doctrine/ORM/Query/Parser.php
@@ -891,12 +891,7 @@ parameters:
 			path: lib/Doctrine/ORM/Query/Parser.php
 
 		-
-			message: "#^Method Doctrine\\\\ORM\\\\Query\\\\Parser\\:\\:ArithmeticTerm\\(\\) should return Doctrine\\\\ORM\\\\Query\\\\AST\\\\ArithmeticTerm but returns Doctrine\\\\ORM\\\\Query\\\\AST\\\\ArithmeticFactor\\|string\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Query/Parser.php
-
-		-
-			message: "#^Method Doctrine\\\\ORM\\\\Query\\\\Parser\\:\\:SimpleArithmeticExpression\\(\\) should return Doctrine\\\\ORM\\\\Query\\\\AST\\\\SimpleArithmeticExpression but returns Doctrine\\\\ORM\\\\Query\\\\AST\\\\ArithmeticTerm\\|string\\.$#"
+			message: "#^Method Doctrine\\\\ORM\\\\Query\\\\Parser\\:\\:ArithmeticTerm\\(\\) should return Doctrine\\\\ORM\\\\Query\\\\AST\\\\ArithmeticTerm but returns Doctrine\\\\ORM\\\\Query\\\\AST\\\\ArithmeticFactor\\|int\\|string\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Query/Parser.php
 

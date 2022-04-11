@@ -8,6 +8,7 @@ use Doctrine\Deprecations\PHPUnit\VerifyDeprecations;
 use Doctrine\ORM\Decorator\EntityManagerDecorator;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\ResultSetMapping;
+use Exception;
 use Generator;
 use LogicException;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -76,6 +77,15 @@ class EntityManagerDecoratorTest extends TestCase
                 [
                     static function (): void {
                     },
+                ],
+            ];
+        }
+
+        if ($method->getName() === 'close') {
+            return [
+                $method->getName(),
+                [
+                    new Exception(),
                 ],
             ];
         }

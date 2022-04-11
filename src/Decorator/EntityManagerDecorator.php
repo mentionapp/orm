@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\Persistence\ObjectManagerDecorator;
+use Throwable;
 
 use function func_get_arg;
 use function func_num_args;
@@ -184,9 +185,9 @@ abstract class EntityManagerDecorator extends ObjectManagerDecorator implements 
     /**
      * {@inheritDoc}
      */
-    public function close()
+    public function close(?Throwable $e = null)
     {
-        $this->wrapped->close();
+        $this->wrapped->close($e);
     }
 
     /**

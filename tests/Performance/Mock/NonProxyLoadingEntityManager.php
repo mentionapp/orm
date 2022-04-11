@@ -7,6 +7,7 @@ namespace Doctrine\Performance\Mock;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Proxy\ProxyFactory;
 use Doctrine\ORM\Query\ResultSetMapping;
+use Throwable;
 
 /**
  * An entity manager mock that prevents lazy-loading of proxies
@@ -183,9 +184,9 @@ class NonProxyLoadingEntityManager implements EntityManagerInterface
     /**
      * {@inheritDoc}
      */
-    public function close()
+    public function close(?Throwable $e = null)
     {
-        $this->realEntityManager->close();
+        $this->realEntityManager->close($e);
     }
 
     /**

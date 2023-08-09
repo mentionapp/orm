@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Doctrine\Tests\ORM\Tools\Console\Command;
 
 use Doctrine\DBAL\Platforms\SqlitePlatform;
-use Doctrine\ORM\Tools\Console\Command\InfoCommand;
 use Doctrine\ORM\Tools\Console\Command\ValidateSchemaCommand;
 use Doctrine\ORM\Tools\Console\EntityManagerProvider\SingleManagerProvider;
 use Doctrine\Tests\OrmFunctionalTestCase;
@@ -20,7 +19,7 @@ use Symfony\Component\Console\Tester\CommandTester;
  */
 class ValidateSchemaCommandTest extends OrmFunctionalTestCase
 {
-    /** @var InfoCommand */
+    /** @var ValidateSchemaCommand */
     private $command;
 
     /** @var CommandTester */
@@ -57,6 +56,11 @@ class ValidateSchemaCommandTest extends OrmFunctionalTestCase
 
     public function testNotInSyncVerbose(): void
     {
+        $schemaManager = $this->createSchemaManager();
+        if ($schemaManager->tablesExist('cache_login')) {
+            $schemaManager->dropTable('cache_login');
+        }
+
         $this->tester->execute(
             [
                 'command' => $this->command->getName(),

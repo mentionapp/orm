@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method Doctrine\\\\ORM\\\\AbstractQuery\\:\\:processParameterValue\\(\\) should return array\\|bool\\|float\\|int\\|string but returns mixed\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/AbstractQuery.php
-
-		-
 			message: "#^Call to an undefined method Doctrine\\\\ORM\\\\Persisters\\\\Entity\\\\EntityPersister\\:\\:getCacheRegion\\(\\)\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Cache/DefaultEntityHydrator.php
@@ -171,27 +166,12 @@ parameters:
 			path: lib/Doctrine/ORM/Id/TableGenerator.php
 
 		-
-			message: "#^Offset 'indexes' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Mapping/Builder/ClassMetadataBuilder.php
-
-		-
-			message: "#^Offset 'uniqueConstraints' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Mapping/Builder/ClassMetadataBuilder.php
-
-		-
 			message: "#^If condition is always true\\.$#"
 			count: 2
 			path: lib/Doctrine/ORM/Mapping/ClassMetadataFactory.php
 
 		-
 			message: "#^Negated boolean expression is always false\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Mapping/ClassMetadataFactory.php
-
-		-
-			message: "#^Offset 'indexes'\\|'uniqueConstraints' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Mapping/ClassMetadataFactory.php
 
@@ -207,11 +187,6 @@ parameters:
 
 		-
 			message: "#^Negated boolean expression is always false\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Mapping/ClassMetadataInfo.php
-
-		-
-			message: "#^Offset 'schema' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} on left side of \\?\\? always exists and is not nullable\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Mapping/ClassMetadataInfo.php
 
@@ -244,6 +219,11 @@ parameters:
 			message: "#^Expression on left side of \\?\\? is not nullable\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Mapping/Driver/AnnotationDriver.php
+
+		-
+			message: "#^Expression on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: lib/Doctrine/ORM/Mapping/Driver/AttributeDriver.php
 
 		-
 			message: "#^Empty array passed to foreach\\.$#"
@@ -346,37 +326,37 @@ parameters:
 			path: lib/Doctrine/ORM/Query/AST/Functions/DateAddFunction.php
 
 		-
-			message: "#^Parameter \\#2 \\$days of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateAddDaysExpression\\(\\) expects int, string given\\.$#"
+			message: "#^Parameter \\#2 \\$days of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateAddDaysExpression\\(\\) expects int\\|numeric\\-string, string given\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Query/AST/Functions/DateAddFunction.php
 
 		-
-			message: "#^Parameter \\#2 \\$hours of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateAddHourExpression\\(\\) expects int, string given\\.$#"
+			message: "#^Parameter \\#2 \\$hours of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateAddHourExpression\\(\\) expects int\\|numeric\\-string, string given\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Query/AST/Functions/DateAddFunction.php
 
 		-
-			message: "#^Parameter \\#2 \\$minutes of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateAddMinutesExpression\\(\\) expects int, string given\\.$#"
+			message: "#^Parameter \\#2 \\$minutes of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateAddMinutesExpression\\(\\) expects int\\|numeric\\-string, string given\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Query/AST/Functions/DateAddFunction.php
 
 		-
-			message: "#^Parameter \\#2 \\$months of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateAddMonthExpression\\(\\) expects int, string given\\.$#"
+			message: "#^Parameter \\#2 \\$months of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateAddMonthExpression\\(\\) expects int\\|numeric\\-string, string given\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Query/AST/Functions/DateAddFunction.php
 
 		-
-			message: "#^Parameter \\#2 \\$seconds of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateAddSecondsExpression\\(\\) expects int, string given\\.$#"
+			message: "#^Parameter \\#2 \\$seconds of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateAddSecondsExpression\\(\\) expects int\\|numeric\\-string, string given\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Query/AST/Functions/DateAddFunction.php
 
 		-
-			message: "#^Parameter \\#2 \\$weeks of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateAddWeeksExpression\\(\\) expects int, string given\\.$#"
+			message: "#^Parameter \\#2 \\$weeks of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateAddWeeksExpression\\(\\) expects int\\|numeric\\-string, string given\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Query/AST/Functions/DateAddFunction.php
 
 		-
-			message: "#^Parameter \\#2 \\$years of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateAddYearsExpression\\(\\) expects int, string given\\.$#"
+			message: "#^Parameter \\#2 \\$years of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateAddYearsExpression\\(\\) expects int\\|numeric\\-string, string given\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Query/AST/Functions/DateAddFunction.php
 
@@ -386,37 +366,37 @@ parameters:
 			path: lib/Doctrine/ORM/Query/AST/Functions/DateSubFunction.php
 
 		-
-			message: "#^Parameter \\#2 \\$days of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateSubDaysExpression\\(\\) expects int, string given\\.$#"
+			message: "#^Parameter \\#2 \\$days of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateSubDaysExpression\\(\\) expects int\\|numeric\\-string, string given\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Query/AST/Functions/DateSubFunction.php
 
 		-
-			message: "#^Parameter \\#2 \\$hours of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateSubHourExpression\\(\\) expects int, string given\\.$#"
+			message: "#^Parameter \\#2 \\$hours of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateSubHourExpression\\(\\) expects int\\|numeric\\-string, string given\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Query/AST/Functions/DateSubFunction.php
 
 		-
-			message: "#^Parameter \\#2 \\$minutes of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateSubMinutesExpression\\(\\) expects int, string given\\.$#"
+			message: "#^Parameter \\#2 \\$minutes of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateSubMinutesExpression\\(\\) expects int\\|numeric\\-string, string given\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Query/AST/Functions/DateSubFunction.php
 
 		-
-			message: "#^Parameter \\#2 \\$months of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateSubMonthExpression\\(\\) expects int, string given\\.$#"
+			message: "#^Parameter \\#2 \\$months of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateSubMonthExpression\\(\\) expects int\\|numeric\\-string, string given\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Query/AST/Functions/DateSubFunction.php
 
 		-
-			message: "#^Parameter \\#2 \\$seconds of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateSubSecondsExpression\\(\\) expects int, string given\\.$#"
+			message: "#^Parameter \\#2 \\$seconds of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateSubSecondsExpression\\(\\) expects int\\|numeric\\-string, string given\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Query/AST/Functions/DateSubFunction.php
 
 		-
-			message: "#^Parameter \\#2 \\$weeks of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateSubWeeksExpression\\(\\) expects int, string given\\.$#"
+			message: "#^Parameter \\#2 \\$weeks of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateSubWeeksExpression\\(\\) expects int\\|numeric\\-string, string given\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Query/AST/Functions/DateSubFunction.php
 
 		-
-			message: "#^Parameter \\#2 \\$years of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateSubYearsExpression\\(\\) expects int, string given\\.$#"
+			message: "#^Parameter \\#2 \\$years of method Doctrine\\\\DBAL\\\\Platforms\\\\AbstractPlatform\\:\\:getDateSubYearsExpression\\(\\) expects int\\|numeric\\-string, string given\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Query/AST/Functions/DateSubFunction.php
 
@@ -494,11 +474,6 @@ parameters:
 			message: "#^PHPDoc type array\\<string\\> of property Doctrine\\\\ORM\\\\Query\\\\Expr\\\\Select\\:\\:\\$allowedClasses is not covariant with PHPDoc type array\\<int, class\\-string\\> of overridden property Doctrine\\\\ORM\\\\Query\\\\Expr\\\\Base\\:\\:\\$allowedClasses\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Query/Expr/Select.php
-
-		-
-			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
-			count: 3
-			path: lib/Doctrine/ORM/Query/Parser.php
 
 		-
 			message: "#^Method Doctrine\\\\ORM\\\\Query\\\\Parser\\:\\:ArithmeticFactor\\(\\) should return Doctrine\\\\ORM\\\\Query\\\\AST\\\\ArithmeticFactor but returns Doctrine\\\\ORM\\\\Query\\\\AST\\\\Node\\|string\\.$#"
@@ -1136,37 +1111,17 @@ parameters:
 			path: lib/Doctrine/ORM/Tools/EntityGenerator.php
 
 		-
-			message: "#^Offset 'indexes' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Tools/EntityGenerator.php
-
-		-
 			message: "#^Offset 'initialValue' on array\\{sequenceName\\: string, allocationSize\\: string, initialValue\\: string, quoted\\?\\: mixed\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Tools/EntityGenerator.php
 
 		-
-			message: "#^Offset 'name' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Tools/EntityGenerator.php
-
-		-
-			message: "#^Offset 'options' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Tools/EntityGenerator.php
-
-		-
-			message: "#^Offset 'schema' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
+			message: "#^Offset 'name' on array\\{name\\: string, schema\\?\\: string, indexes\\?\\: array, uniqueConstraints\\?\\: array, options\\?\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Tools/EntityGenerator.php
 
 		-
 			message: "#^Offset 'sequenceName' on array\\{sequenceName\\: string, allocationSize\\: string, initialValue\\: string, quoted\\?\\: mixed\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Tools/EntityGenerator.php
-
-		-
-			message: "#^Offset 'uniqueConstraints' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Tools/EntityGenerator.php
 
@@ -1206,27 +1161,7 @@ parameters:
 			path: lib/Doctrine/ORM/Tools/Export/Driver/XmlExporter.php
 
 		-
-			message: "#^Offset 'indexes' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Tools/Export/Driver/XmlExporter.php
-
-		-
-			message: "#^Offset 'name' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Tools/Export/Driver/XmlExporter.php
-
-		-
-			message: "#^Offset 'options' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Tools/Export/Driver/XmlExporter.php
-
-		-
-			message: "#^Offset 'schema' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Tools/Export/Driver/XmlExporter.php
-
-		-
-			message: "#^Offset 'uniqueConstraints' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
+			message: "#^Offset 'name' on array\\{name\\: string, schema\\?\\: string, indexes\\?\\: array, uniqueConstraints\\?\\: array, options\\?\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Tools/Export/Driver/XmlExporter.php
 
@@ -1249,26 +1184,6 @@ parameters:
 			message: "#^Right side of && is always true\\.$#"
 			count: 2
 			path: lib/Doctrine/ORM/Tools/Export/Driver/XmlExporter.php
-
-		-
-			message: "#^Offset 'indexes' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Tools/Export/Driver/YamlExporter.php
-
-		-
-			message: "#^Offset 'options' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Tools/Export/Driver/YamlExporter.php
-
-		-
-			message: "#^Offset 'schema' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Tools/Export/Driver/YamlExporter.php
-
-		-
-			message: "#^Offset 'uniqueConstraints' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Tools/Export/Driver/YamlExporter.php
 
 		-
 			message: "#^Property Doctrine\\\\ORM\\\\Mapping\\\\ClassMetadataInfo\\<object\\>\\:\\:\\$lifecycleCallbacks \\(array\\<string, array\\<int, string\\>\\>\\) in isset\\(\\) is not nullable\\.$#"
@@ -1321,21 +1236,6 @@ parameters:
 			path: lib/Doctrine/ORM/Tools/SchemaTool.php
 
 		-
-			message: "#^Offset 'indexes' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Tools/SchemaTool.php
-
-		-
-			message: "#^Offset 'options' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Tools/SchemaTool.php
-
-		-
-			message: "#^Offset 'uniqueConstraints' on array\\{name\\: string, schema\\: string, indexes\\: array, uniqueConstraints\\: array, options\\: array\\<string, mixed\\>, quoted\\?\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: lib/Doctrine/ORM/Tools/SchemaTool.php
-
-		-
 			message: "#^Binary operation \"&\" between string and 3 results in an error\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/UnitOfWork.php
@@ -1379,4 +1279,3 @@ parameters:
 			message: "#^Access to an undefined property Doctrine\\\\Persistence\\\\Mapping\\\\ClassMetadata\\:\\:\\$subClasses\\.$#"
 			count: 1
 			path: lib/Doctrine/ORM/Utility/HierarchyDiscriminatorResolver.php
-

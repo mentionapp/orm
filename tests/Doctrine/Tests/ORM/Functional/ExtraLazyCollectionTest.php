@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Doctrine\Tests\ORM\Functional;
 
-use Doctrine\ORM\Mapping\ClassMetadataInfo;
+use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\Tests\Models\CMS\CmsArticle;
 use Doctrine\Tests\Models\CMS\CmsGroup;
 use Doctrine\Tests\Models\CMS\CmsPhonenumber;
@@ -51,6 +51,9 @@ class ExtraLazyCollectionTest extends OrmFunctionalTestCase
     /** @var CmsPhonenumber */
     private $phonenumber;
 
+    /** @var array<string, mixed> */
+    private $previousCacheConfig = [];
+
     protected function setUp(): void
     {
         $this->useModelSet('tweet');
@@ -59,11 +62,11 @@ class ExtraLazyCollectionTest extends OrmFunctionalTestCase
         parent::setUp();
 
         $class                                                 = $this->_em->getClassMetadata(CmsUser::class);
-        $class->associationMappings['groups']['fetch']         = ClassMetadataInfo::FETCH_EXTRA_LAZY;
+        $class->associationMappings['groups']['fetch']         = ClassMetadata::FETCH_EXTRA_LAZY;
         $class->associationMappings['groups']['indexBy']       = 'name';
-        $class->associationMappings['articles']['fetch']       = ClassMetadataInfo::FETCH_EXTRA_LAZY;
+        $class->associationMappings['articles']['fetch']       = ClassMetadata::FETCH_EXTRA_LAZY;
         $class->associationMappings['articles']['indexBy']     = 'topic';
-        $class->associationMappings['phonenumbers']['fetch']   = ClassMetadataInfo::FETCH_EXTRA_LAZY;
+        $class->associationMappings['phonenumbers']['fetch']   = ClassMetadata::FETCH_EXTRA_LAZY;
         $class->associationMappings['phonenumbers']['indexBy'] = 'phonenumber';
 
         foreach (['phonenumbers', 'articles', 'users'] as $field) {
@@ -75,7 +78,7 @@ class ExtraLazyCollectionTest extends OrmFunctionalTestCase
         }
 
         $class                                          = $this->_em->getClassMetadata(CmsGroup::class);
-        $class->associationMappings['users']['fetch']   = ClassMetadataInfo::FETCH_EXTRA_LAZY;
+        $class->associationMappings['users']['fetch']   = ClassMetadata::FETCH_EXTRA_LAZY;
         $class->associationMappings['users']['indexBy'] = 'username';
 
         $this->loadFixture();
@@ -86,9 +89,9 @@ class ExtraLazyCollectionTest extends OrmFunctionalTestCase
         parent::tearDown();
 
         $class                                               = $this->_em->getClassMetadata(CmsUser::class);
-        $class->associationMappings['groups']['fetch']       = ClassMetadataInfo::FETCH_LAZY;
-        $class->associationMappings['articles']['fetch']     = ClassMetadataInfo::FETCH_LAZY;
-        $class->associationMappings['phonenumbers']['fetch'] = ClassMetadataInfo::FETCH_LAZY;
+        $class->associationMappings['groups']['fetch']       = ClassMetadata::FETCH_LAZY;
+        $class->associationMappings['articles']['fetch']     = ClassMetadata::FETCH_LAZY;
+        $class->associationMappings['phonenumbers']['fetch'] = ClassMetadata::FETCH_LAZY;
 
         foreach (['phonenumbers', 'articles', 'users'] as $field) {
             if (isset($this->previousCacheConfig[$field])) {
@@ -102,7 +105,7 @@ class ExtraLazyCollectionTest extends OrmFunctionalTestCase
         unset($class->associationMappings['phonenumbers']['indexBy']);
 
         $class                                        = $this->_em->getClassMetadata(CmsGroup::class);
-        $class->associationMappings['users']['fetch'] = ClassMetadataInfo::FETCH_LAZY;
+        $class->associationMappings['users']['fetch'] = ClassMetadata::FETCH_LAZY;
 
         unset($class->associationMappings['users']['indexBy']);
     }

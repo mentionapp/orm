@@ -152,9 +152,7 @@ class EntityManager implements EntityManagerInterface
      */
     private $cache;
 
-    /**
-     * @var EntityManagerClosed|null
-     */
+    /** @var EntityManagerClosed|null */
     private $closedWhere = null;
 
     /**
@@ -636,11 +634,11 @@ class EntityManager implements EntityManagerInterface
     /**
      * {@inheritDoc}
      */
-    public function close(?\Throwable $e = null)
+    public function close(?Throwable $e = null)
     {
         $this->clear();
 
-        $this->closed = true;
+        $this->closed      = true;
         $this->closedWhere = EntityManagerClosed::createClosedHere($e);
     }
 

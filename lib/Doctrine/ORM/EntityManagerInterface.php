@@ -16,6 +16,7 @@ use Doctrine\ORM\Query\Expr;
 use Doctrine\ORM\Query\FilterCollection;
 use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\Persistence\ObjectManager;
+use Throwable;
 
 /**
  * EntityManager interface
@@ -218,7 +219,7 @@ interface EntityManagerInterface extends ObjectManager
      *
      * @return void
      */
-    public function close(?\Throwable $e = null);
+    public function close(?Throwable $e = null);
 
     /**
      * Creates a copy of the given entity. Can create a shallow or a deep copy.

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Doctrine\ORM\Exception;
 
+use Throwable;
+
 final class EntityManagerClosed extends ORMException implements ManagerException
 {
     public static function create(): self
@@ -11,9 +13,9 @@ final class EntityManagerClosed extends ORMException implements ManagerException
         return new self('The EntityManager is closed.');
     }
 
-    public static function createWhere(?\Throwable $e = null): self
+    public static function createWhere(?Throwable $e = null): self
     {
-        if (null === $e) {
+        if ($e === null) {
             return self::create();
         }
 
@@ -24,9 +26,9 @@ final class EntityManagerClosed extends ORMException implements ManagerException
         );
     }
 
-    public static function createClosedHere(?\Throwable $cause = null): self
+    public static function createClosedHere(?Throwable $cause = null): self
     {
-        if (null === $cause) {
+        if ($cause === null) {
             return new self('This exception allows to trace back to where close() was called.');
         }
 

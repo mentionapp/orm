@@ -7,6 +7,7 @@ namespace Doctrine\Tests\ORM\Decorator;
 use Doctrine\ORM\Decorator\EntityManagerDecorator;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\ResultSetMapping;
+use Exception;
 use Generator;
 use LogicException;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -81,7 +82,7 @@ class EntityManagerDecoratorTest extends TestCase
             return [
                 $method->getName(),
                 [
-                    new \Exception(),
+                    new Exception(),
                 ],
             ];
         }

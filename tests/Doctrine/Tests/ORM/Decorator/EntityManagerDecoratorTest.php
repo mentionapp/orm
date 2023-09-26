@@ -77,6 +77,15 @@ class EntityManagerDecoratorTest extends TestCase
             ];
         }
 
+        if ($method->getName() === 'close') {
+            return [
+                $method->getName(),
+                [
+                    new \Exception(),
+                ],
+            ];
+        }
+
         $parameters = [];
 
         foreach ($method->getParameters() as $parameter) {

@@ -176,9 +176,9 @@ abstract class EntityManagerDecorator extends ObjectManagerDecorator implements 
     /**
      * {@inheritDoc}
      */
-    public function close()
+    public function close(?\Throwable $e = null)
     {
-        $this->wrapped->close();
+        $this->wrapped->close($e);
     }
 
     /**
